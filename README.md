@@ -3,17 +3,67 @@
   - Angular - UI
   - Spring boot - backend
 
-- Project business features - initial list
+- Project business features - refinement in progress
   - registration of users/admin etc
-  - booking trips
-  - travel destinations
+    - two roles: users and administrators
+    - Normal user
+      - sign up
+    - admin
+      - defined in application - starting approach
+   
+  - provide all available trips
+    - security rules
+      - travel restrictions
+      - Insurance
+    - travel date/time - start and end
+    - destination
+      - country
+      - city
+    - cost (per person)
+    - transport type:
+      - bus, train, plane, ferry
+    - travel restrictions
+    - payment type
+    - meal types
+      - breakfast
+      - lunch
+      - Dinner
+      - snacks
+      - drinks
+      - HB
+      - All inclusive
+    - Hotel facilities
+      - attractions
+      - apartment facilities
+  - searching
+    - country selection
+    - city
+    - number of people
+    - date boundaries (starting/ending/no dates)
+    - type of transport
+ 
   - map of destinations
+    - possibility to select from the map of destination and later to see available trips there 
+  - booking trips
+      - contact information
+        - e-mail, phone
+      - data of all passengers
+        - name
+        - surname
+        - birthdate
+        - nationality
+        - passport number
+        - gender
+        - 
   - last/first minute offers
-  - choice of payment
   - review section
-  - transport type: bus, train, plane
-  - Security rules + Insurance
   - online chat
   - customer travel history + possibility to add places which you already visited
   - vip/premium customers
-  - search travel a
+  - search for travel
+### Additional features
+  - type of the trip (business/family) 
+  - think about more searching options(future)
+    - budget
+    - from where to where 
+  

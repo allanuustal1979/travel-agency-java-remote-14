@@ -87,7 +87,7 @@
         - travel restrictions
         - Insurance
       - payment type (Enum)
-        - MONEY, CARD, TRANSFER, APPLE PAY, Google Pay, Paypal, installment payment
+        - CASH, CARD, TRANSFER, APPLE PAY, Google Pay, Paypal, installment payment
       - meal types (Enum)
         - Breakfasts
         - Lunches

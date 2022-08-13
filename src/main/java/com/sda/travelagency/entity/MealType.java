@@ -5,8 +5,8 @@ public enum MealType {
     LUNCH("Food for the day"),
     DINNER("Food for the evening"),
     SNACKS("If you didn't have enough"),
-    DRINKS("Liquid to help you sleep"),
-    HB(""),
+    DRINKS("Liquid to help you sleep, pick your poison (VODKA/SPIRIT)"),
+    HB("Get Your breakfast and dinner"),
     ALL_INCLUSIVE("You get it all!");
 
     private String mealDescription;

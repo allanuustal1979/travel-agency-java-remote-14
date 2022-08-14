@@ -3,6 +3,7 @@ package com.sda.travelagency.entity;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -25,5 +26,7 @@ public class Trip {
 
     MealType mealType;
 
+    HotelFacilities hotelFacilities;
 
+    List<String> photos;
 }

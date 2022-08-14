@@ -9,7 +9,7 @@ public enum PaymentType {
     PAYPAL("Elon, would You pay?"),
     INSTALLMENT_PAYMENT("Just installment payments");
 
-    private String description;
+    private final String description;
 
     PaymentType(String description) {
         this.description = description;

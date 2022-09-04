@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {allTripsUrl} from "../../models/urls";
+import {TripDto} from "../../models/trips";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +11,8 @@ export class TripService {
   // TODO add correct module to AppModule
   constructor(private http: HttpClient) { }
 
-  getAllTrio(): any {
-    return this.http.get<any[]>(allTripsUrl)
+  getAllTrio(): Observable<TripDto[]> {
+    return this.http.get<TripDto[]>(allTripsUrl)
+
   }
 }

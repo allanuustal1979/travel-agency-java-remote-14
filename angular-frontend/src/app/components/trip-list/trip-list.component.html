@@ -17,3 +17,7 @@
     <button mat-button>SHARE</button>
   </mat-card-actions>
 </mat-card>
+
+<div *ngFor="let trip of trips">
+  <p>You can go to {{trip.destination.city}} in {{trip.destination.country}} and stay in {{trip.destination.hotelName}}</p>
+</div>

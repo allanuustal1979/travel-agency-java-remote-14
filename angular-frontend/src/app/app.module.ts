@@ -7,10 +7,13 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatCardModule} from "@angular/material/card";
 import {HttpClientModule} from "@angular/common/http";
 import {MatButtonModule} from "@angular/material/button";
-import { HeaderComponent } from './components/header/header.component';
-import { NavigationComponent } from './components/navigation/navigation.component';
+import {HeaderComponent} from './components/header/header.component';
+import {NavigationComponent} from './components/navigation/navigation.component';
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
-import { AboutusComponent } from './components/aboutus/aboutus.component';
+import {AboutusComponent} from './components/aboutus/aboutus.component';
+import {HomeComponent} from './components/home/home.component';
+import {RouterModule} from "@angular/router";
+
 
 @NgModule({
   declarations: [
@@ -18,7 +21,8 @@ import { AboutusComponent } from './components/aboutus/aboutus.component';
     TripListComponent,
     HeaderComponent,
     NavigationComponent,
-    AboutusComponent
+    AboutusComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,14 @@ import { AboutusComponent } from './components/aboutus/aboutus.component';
     MatCardModule,
     HttpClientModule,
     MatButtonModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    RouterModule.forRoot([
+      {path:'home', component: HomeComponent},
+      {path:'', component: HomeComponent},
+      {path:'about-us', component: AboutusComponent},
+      {path:'all-trips', component: TripListComponent}
+
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]

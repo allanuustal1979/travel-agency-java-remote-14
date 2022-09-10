@@ -13,6 +13,9 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {AboutusComponent} from './components/aboutus/aboutus.component';
 import {HomeComponent} from './components/home/home.component';
 import {RouterModule} from "@angular/router";
+import {aboutUsUrl, defaultUrl, homeUrl, notFoundUrl, tripsUrl} from "./models/urls";
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import {MatIconModule} from "@angular/material/icon";
 
 
 @NgModule({
@@ -22,7 +25,8 @@ import {RouterModule} from "@angular/router";
     HeaderComponent,
     NavigationComponent,
     AboutusComponent,
-    HomeComponent
+    HomeComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -32,12 +36,15 @@ import {RouterModule} from "@angular/router";
     MatButtonModule,
     MatButtonToggleModule,
     RouterModule.forRoot([
-      {path:'home', component: HomeComponent},
-      {path:'', component: HomeComponent},
-      {path:'about-us', component: AboutusComponent},
-      {path:'all-trips', component: TripListComponent}
+      {path: defaultUrl, component: HomeComponent}, // default
+      {path: homeUrl, component: HomeComponent},
+      {path: aboutUsUrl, component: AboutusComponent},
+      {path: tripsUrl, component: TripListComponent},
+      {path: notFoundUrl, component: NotFoundComponent}
 
-    ])
+
+    ]),
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

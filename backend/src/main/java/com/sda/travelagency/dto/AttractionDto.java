@@ -6,6 +6,7 @@ import java.util.List;
 
 public record AttractionDto(
 
+        Long id,
         String description,
 
         AgeRestrictions ageRestrictions,

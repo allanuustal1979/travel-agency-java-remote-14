@@ -4,14 +4,13 @@ import com.sda.travelagency.entity.*;
 import com.sda.travelagency.entity.enumeration.MealType;
 import com.sda.travelagency.entity.enumeration.PaymentType;
 import com.sda.travelagency.entity.enumeration.TransportType;
+import com.sda.travelagency.repository.TripRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Profile;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.FluentQuery;
 import org.springframework.stereotype.Repository;
 
@@ -21,15 +20,15 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 
-// TripRepository bean will be created only when "Develop" profile is activated
+// TripRepository bean will be created only when "develop" profile is activated
 // useful for development purposes
-@Profile("Develop")
+@Profile("develop")
 @Repository
 @Slf4j
-public class FakeTripRepository implements JpaRepository<Trip, Long> {
+public class FakeTripRepository implements TripRepository {
 
     public FakeTripRepository() {
-        log.info("fake trip repository bean was created");
+        log.info("fake trip repository bean was created :P");
     }
 
     @Override
@@ -138,25 +137,25 @@ public class FakeTripRepository implements JpaRepository<Trip, Long> {
                 Trip.builder()
                         .tripStartDate(LocalDate.now().plusDays(1))
                         .tripEndDate(LocalDate.now().plusDays(15))
-                        .destination(new Destination(1L,"UK","London", "Hilton"))
-                        .tripPrice(new Price(BigDecimal.valueOf(500L),"EURO"))
+                        .destination(new Destination(1L, "UK", "London", "Hilton"))
+                        .tripPrice(new Price(BigDecimal.valueOf(500L), "EURO"))
                         .typeOfTransport(TransportType.PLANE)
-                        .securityRules(new SecurityRules(1L,"",""))
+                        .securityRules(new SecurityRules(1L, "", ""))
                         .paymentType(PaymentType.PAYPAL)
                         .mealType(MealType.ALL_INCLUSIVE)
-                        .hotelFacilities(new HotelFacilities(2L,List.of(),List.of("bathroom","bed")))
-                        .photos(List.of("https://www.hilton.com/en/hotels/lonhitw-london-hilton-on-park-lane/"))
+                        .hotelFacilities(new HotelFacilities(1L, List.of(), List.of("bathroom", "bed")))
+                        .photos(List.of("https://fastly.4sqi.net/img/general/600x600/1376806605_Hc3gxR3iMMI5OKRpt7ook-zGGreT4XxgEapWx0wC844.jpg"))
                         .build(),
                 Trip.builder()
                         .tripStartDate(LocalDate.now().plusDays(1))
                         .tripEndDate(LocalDate.now().plusDays(15))
-                        .destination(new Destination(1L,"Thailand", "Bangkok", "Sawasdee Sunshine"))
+                        .destination(new Destination(2L, "Thailand", "Bangkok", "Sawasdee Sunshine"))
                         .tripPrice(new Price(BigDecimal.valueOf(1_500L), "baht"))
                         .typeOfTransport(TransportType.PLANE)
-                        .securityRules(new SecurityRules(2L,"", ""))
+                        .securityRules(new SecurityRules(2L, "", ""))
                         .paymentType(PaymentType.CARD)
                         .mealType(MealType.ALL_INCLUSIVE)
-                        .hotelFacilities(new HotelFacilities(2L,List.of(), List.of("Bed", "Swiming Pool", "Bathroom", "Parking")))
+                        .hotelFacilities(new HotelFacilities(2L, List.of(), List.of("Bed", "Swiming Pool", "Bathroom", "Parking")))
                         .photos(List.of("https://pix10.agoda.net/hotelImages/6796247/0/33adac49e47c732b38c54faca72b84f9.jpg?ca=22&ce=0&s=1024x768"))
                         .build());
     }

@@ -27,7 +27,7 @@ public class Trip {
     LocalDate tripEndDate;
 
     // dirty fix - just ignore that field
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     Destination destination;
 
     @Embedded
@@ -36,7 +36,7 @@ public class Trip {
     @Enumerated(EnumType.STRING)
     TransportType typeOfTransport;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     SecurityRules securityRules;
 
     @Enumerated(EnumType.STRING)
@@ -45,7 +45,7 @@ public class Trip {
     @Enumerated(EnumType.STRING)
     MealType mealType;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     HotelFacilities hotelFacilities;
 
     @ElementCollection

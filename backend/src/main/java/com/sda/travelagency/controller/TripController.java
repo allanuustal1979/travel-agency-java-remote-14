@@ -6,6 +6,7 @@ import com.sda.travelagency.service.TripService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 //TODO: fic CORS in better way
@@ -44,7 +45,7 @@ public class TripController {
     }
 
     @PostMapping
-    public TripDto createNewTrip(@RequestBody TripDto newTrip) {
+    public TripDto createNewTrip(@Valid @RequestBody TripDto newTrip) {
         log.info("trying to create new trip: [{}]", newTrip);
         // convert dto to entity
         var toSaveEntity = tripConverter.fromDtoToEntity(newTrip);

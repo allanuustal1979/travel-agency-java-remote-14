@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 //TODO: fic CORS in better way
 @CrossOrigin("http://localhost:4200")
 @RestController
@@ -24,7 +25,7 @@ public class TripController {
     }
 
     @GetMapping
-    public List<TripDto> getAllTrips(){
+    public List<TripDto> getAllTrips() {
 
         log.info("getting all trips");
 
@@ -33,11 +34,29 @@ public class TripController {
                 .map(trip -> tripConverter.fromEntityToDto(trip))
                 .toList();
     }
+
     @GetMapping("/{id}")
-    public TripDto getTripById(@PathVariable("id") Long id){
+    public TripDto getTripById(@PathVariable("id") Long id) {
         log.info("get trip by id: [{}]", id);
 
         var entity = tripService.findTripById(id);
         return tripConverter.fromEntityToDto(entity);
     }
+
+    @PostMapping
+    public TripDto createNewTrip(@RequestBody TripDto newTrip) {
+        log.info("trying to create new trip: [{}]", newTrip);
+        // convert dto to entity
+        var toSaveEntity = tripConverter.fromDtoToEntity(newTrip);
+
+        // store into db
+        var saved = tripService.createNewTrip(toSaveEntity);
+
+        // convert back to dto
+        return tripConverter.fromEntityToDto(saved);
+    }
+
+
 }
+
+

@@ -1,5 +1,5 @@
 .header{
   text-align: center;
-  background-image: url("https://image.shutterstock.com/image-photo/amazing-maldives-island-panorama-beautiful-260nw-1104848978.jpg ");
+  background-image: url('src/assets/images/logo.png');
   max-height: 75px;
 }

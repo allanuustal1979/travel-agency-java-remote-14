@@ -1,23 +1,21 @@
-<mat-card class="example-card">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>Shiba Inu</mat-card-title>
-    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-  <mat-card-content>
-    <p>
-      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-      bred for hunting.
-    </p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-button>LIKE</button>
-    <button mat-button>SHARE</button>
-  </mat-card-actions>
-</mat-card>
-
 <div *ngFor="let trip of trips">
-  <p>You can go to {{trip.destination.city}} in {{trip.destination.country}} and stay in {{trip.destination.hotelName}}</p>
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{ trip.destination.country }}</mat-card-title>
+      <mat-card-subtitle>{{ trip.destination.hotelName }} in {{ trip.destination.city }}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="https://www.hilton.com/im/en/LONHITW/4779388/exterior.jpg?impolicy=crop&cw=4102&ch=1710&gravity=NorthWest&xposition=0&yposition=1004&rw=1470&rh=617" alt="Photo of Hilton">
+    <mat-card-content>
+      <p>
+        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+        bred for hunting.
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card>
 </div>
